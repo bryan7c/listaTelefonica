@@ -41,15 +41,31 @@
                 $scope.contatos.push(angular.copy(contato));
                 delete $scope.contato;
             }
+
+            $scope.removerContato = function(contatos){
+                $scope.contatos = contatos.filter(function(contato){
+                	return !contato.selecionado;
+                });
+            }
+
+            $scope.isContatoSelecionado = function(contatos){
+                return contatos.some(function(contato){
+                	return contato.selecionado;
+                });
+            }
+
+            $scope.checkAll = function(contatos){
+                
+            }
 		});
 	</script>
 </head>
 <body ng-controller="listaTelefonicaCtrl">
 	<div class="jumbotron">
 		<h4 ng-bind="app"></h4>
-		<table class="table table-striped">
+		<table class="table table-striped" ng-hide="contatos.length == 0">
 			<tr>
-                <th></th>
+                <th><input type="checkbox" ng-model="chkAll" ng-change="checkAll(chkAll)" /></th>
 				<th>Nome</th>
                 <th>Telefone</th>
                 <th>Operadora</th>
@@ -68,6 +84,8 @@
             <option value="">Selecione uma operadora</option>
         </select>
         <button class="btn btn-block btn-primary" ng-click="adicionarContato(contato)" ng-disabled="!contato.nome || !contato.telefone">Adicionar contato</button>
+        <button class="btn btn-block btn-danger" ng-click="removerContato(contatos)" ng-show="isContatoSelecionado(contatos)">Adicionar contato</button>
 	</div>
+	<div ng-include="'footer.html'"></div>
 </body>
 </html>
