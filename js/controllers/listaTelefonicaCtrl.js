@@ -1,5 +1,6 @@
-angular.module("listaTelefonica").controller("listaTelefonicaCtrl", function($scope, $filter, uppercaseFilter, contatosAPI, operadorasAPI){
-	$scope.app = "Lista Telefonica";
+angular.module("listaTelefonica").controller("listaTelefonicaCtrl", function($scope, $filter, uppercaseFilter, contatosAPI, operadorasAPI, serialGenerator){
+	console.log(serialGenerator.generate());
+    $scope.app = "Lista Telefonica";
 	$scope.contatos = [];
 	$scope.operadoras = [];
 
@@ -20,8 +21,9 @@ angular.module("listaTelefonica").controller("listaTelefonicaCtrl", function($sc
 	}
 
     $scope.adicionarContato = function(contato){
+        contato.serial = serialGenerator.generate();
+        contato.data = new Date();
     	contatosAPI.saveContato(contato).success(function(data, status){
-    		//$scope.contatos.push(angular.copy(contato));
     		carregarContatos();
             delete $scope.contato;
             $scope.contatoForm.$setPristine();

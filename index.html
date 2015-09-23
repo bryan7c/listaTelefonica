@@ -9,9 +9,12 @@
 	<script src="js/app.js"></script>
 	<script src="js/controllers/listaTelefonicaCtrl.js"></script>
 
+	<script src="js/config/serialGeneratorConfig.js"></script>
+
 	<script src="js/services/constant/configValue.js"></script>
 	<script src="js/services/contatosAPIService.js"></script>
 	<script src="js/services/operadorasAPIService.js"></script>
+	<script src="js/services/serialGeneratorService.js"></script>
 
 	<script src="lib/angular/angular.locale_pt-br.js"></script>
 	<script src="lib/angular/angular-messages.js"></script>
@@ -34,6 +37,7 @@
 		<table class="table table-striped" ng-hide="contatos.length == 0">
 			<tr>
                 <th><input type="checkbox" ng-model="chkAll" ng-change="checkAll(chkAll)" /></th>
+                <th>Serial</th>
 				<th><a href="" ng-click="ordenarPor('nome')">Nome</a></th>
                 <th><a href="" ng-click="ordenarPor('telefone')">Telefone</a></th>
                 <th>Operadora</th>
@@ -41,6 +45,7 @@
 			</tr>
 			<tr ng-class="{selecionado: contato.selecionado}" ng-repeat="contato in contatos | filter: {nome: criterioDeBusca} | orderBy: criterioDeOrdenacao : ordem | limitTo: limiteDeResultado">
                 <td><input type="checkbox" ng-model="contato.selecionado" /></td>
+                <th>{{contato.serial}}</th>
 				<td>{{contato.nome}}</td>
                 <td>{{contato.telefone}}</td>
                 <td>{{contato.operadora.nome | lowercase}}</td>
