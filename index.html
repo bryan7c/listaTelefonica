@@ -16,6 +16,9 @@
 	<script src="js/services/operadorasAPIService.js"></script>
 	<script src="js/services/serialGeneratorService.js"></script>
 
+	<script src="js/filters/nameFilter.js"></script>
+	<script src="js/filters/elipsisFilter.js"></script>	
+
 	<script src="lib/angular/angular.locale_pt-br.js"></script>
 	<script src="lib/angular/angular-messages.js"></script>
 </head>
@@ -45,11 +48,11 @@
 			</tr>
 			<tr ng-class="{selecionado: contato.selecionado}" ng-repeat="contato in contatos | filter: {nome: criterioDeBusca} | orderBy: criterioDeOrdenacao : ordem | limitTo: limiteDeResultado">
                 <td><input type="checkbox" ng-model="contato.selecionado" /></td>
-                <th>{{contato.serial}}</th>
-				<td>{{contato.nome}}</td>
+                <td>{{contato.serial}}</td>
+				<td>{{contato.nome | name | elipsis:10}}</td>
                 <td>{{contato.telefone}}</td>
                 <td>{{contato.operadora.nome | lowercase}}</td>
-                <td>{{contato.data | date: 'dd/MM/yy HH:mm'}}</td>
+                <td>{{contato.data | date: 'dd/MM/yy'}}</td>
 			</tr>
 		</table>
         <hr />
