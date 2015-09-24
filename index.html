@@ -19,7 +19,8 @@
 	<script src="js/filters/nameFilter.js"></script>
 	<script src="js/filters/elipsisFilter.js"></script>
 
-	<script src="js/directives/uiAlertDirective.js"></script>	
+	<script src="js/directives/uiAlertDirective.js"></script>
+	<script src="js/directives/uiDateDirective.js"></script>
 
 	<script src="lib/angular/angular.locale_pt-br.js"></script>
 	<script src="lib/angular/angular-messages.js"></script>
@@ -27,10 +28,13 @@
 <body ng-controller="listaTelefonicaCtrl">
 	<div class="jumbotron">
 		<h4 ng-bind="app"></h4>
-
+<!-- //Alerta inserido por diretiva
 		<ui-alert title="Ops, aconteceu um problema!">
 			{{erro}}
-		</ui-alert>
+		</ui-alert> -->
+
+		<ui-accordion>
+		</ui-accordion>
 	
 		<div class="row">
 			<div class="form-group col-md-10">
@@ -77,6 +81,7 @@
 					O campo nome deve ter no mínimo 10 caracteres.
 				</div>
 			</div>
+			<input class="form-control" type="text" ng-model="contato.data" name="data" placeholder="Data" ui-date/>
 			
 	        <div class="alert alert-danger" ng-show="contatoForm.telefone.$error.required && contatoForm.telefone.$dirty">Por favor preencha telefone</div>
 	        <div class="alert alert-danger" ng-show="contatoForm.telefone.$error.pattern">O campo telefone está no formato errado (9999-9999)</div>
