@@ -26,6 +26,7 @@ angular.module("listaTelefonica").controller("listaTelefonicaCtrl", function($sc
     		carregarContatos();
             delete $scope.contato;
             $scope.contatoForm.$setPristine();
+            document.getElementById("nome").focus();
     	});
     }
 
