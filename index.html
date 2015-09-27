@@ -44,7 +44,8 @@
 				<select class="form-control" name="limitar" ng-model="limiteDeResultado">
 					<option value="1">1</option>
 					<option value="2">2</option>
-					<option value="3" selected>3</option>
+					<option value="3">3</option>
+					<option value="{{contatos.length}}">{{contatos.length}}</option>
 				</select>			
 			</div>			
 		</div>
@@ -66,11 +67,15 @@
                 <td>{{contato.data | date: 'dd/MM/yy'}}</td>
 			</tr>
 		</table>
+		<div class="alert alert-dismissable">
+		  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+		  <strong>Atenção</strong> é verdade, agora sim está correto
+		</div>
         <hr />
         <form name="contatoForm">
-	        <input class="form-control" type="text" ng-model="contato.nome" name="nome" placeholder="Nome" ng-required="true" ng-minlength="3" />
+	        <input class="form-control" type="text" ng-model="contato.nome" id="nome" name="nome" placeholder="Nome" ng-required="true" ng-minlength="3" />
 	        <input class="form-control" type="text" ng-model="contato.telefone" name="telefone" placeholder="Telefone" ng-required="true" ng-pattern="/^\d{4,5}-\d{4}$/" />
-	        <select class="form-control" ng-model="contato.operadora" ng-required="true" name="operadora" ng-options="operadora as operadora.nome + ' ( '+(operadora.preco | currency)+' )' group by operadora.categoria for operadora in operadoras | orderBy: 'nome'">
+	        <select ng-keyup="$event.keyCode == 13 && adicionarContato(contato)" class="form-control" ng-model="contato.operadora" ng-required="true" name="operadora" ng-options="operadora as operadora.nome + ' ( '+(operadora.preco | currency)+' )' group by operadora.categoria for operadora in operadoras | orderBy: 'nome'">
 	            <option value="">Selecione uma operadora</option>
 	        </select>
 	        <div ng-messages="contatoForm.nome.$error">
@@ -89,7 +94,6 @@
 	        <button class="btn btn-block btn-primary" ng-click="adicionarContato(contato)" ng-disabled="contatoForm.$invalid">Adicionar contato</button>
 	        <button class="btn btn-block btn-danger" ng-click="removerContato(contatos)" ng-show="isContatoSelecionado(contatos)">Remover contato</button>
         </form>
-        {{contato}}
 	</div>
 	<div ng-include="'view/footer.html'"></div>
 </body>
