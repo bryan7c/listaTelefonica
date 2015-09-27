@@ -63,6 +63,10 @@
                 <td>{{contato.data | date: 'dd/MM/yy'}}</td>
 			</tr>
 		</table>
+		<div class="alert alert-dismissable">
+		  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+		  <strong>Atenção</strong> mensagem
+		</div>
         <hr />
         <form name="contatoForm">
 	        <input class="form-control" type="text" ng-model="contato.nome" id="nome" name="nome" placeholder="Nome" ng-required="true" ng-minlength="3" />
