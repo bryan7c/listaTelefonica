@@ -1,0 +1,9 @@
+<div class="" id="title">
+	<h1>{{titulo}}</h1>
+	<input type="text" id="teste" name="teste" placeholder="Coloque o model" />
+	<p ng-transclude></p>
+	{{lista}}
+	<ul ng-repeat="li in lista">
+		<li>{{li.nome}}<div ng-if="li.nome == 'Oi'" id="bla" ng-click="mostrar()">hahahaha</div></li>
+	</ul>
+</div>
