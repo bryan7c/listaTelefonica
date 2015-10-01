@@ -12,7 +12,12 @@ angular.module("listaTelefonica").controller("listaTelefonicaCtrl", function($sc
 	}
 
 	var carregarOperadoras = function(){
-		kkk
+		operadorasAPI.getOperadoras().success(function(data, status){
+			$scope.operadoras = data;
+            var teste;
+		}).error(function(data, status){
+			$scope.erro = "Não foi possível carregar os dados!";
+		});
 	}
 
     $scope.adicionarContato = function(contato){
