@@ -47,7 +47,8 @@
 
 
 ## Fluxo para desenvolvimento da história
-### <a name="modelo-de-historia"></a> Modelo de história para o JIRA
+
+### Modelo de história para o JIRA
 
 1. #### Descrição seguindo a estrutura "As a _ _ _, I want _ _ _, so that _ _ _ " Fonte: [yodiz.com](http://www.yodiz.com/blog/writing-user-stories-examples-and-templates-in-agile-methodologies/)
       1. Para quem estamos contruindo, Quem é o usuário? — **tipo de usuário**
@@ -66,13 +67,15 @@
 1. #### Anexo
     Arquivos necessários para o desenvolvimento da história tal como Wireframe / Design, Massa de dados.
 
-> A aprovação da história para o início do desenvolvimento será feita mediante a checagem dos pontos decritos neste [modelo](#modelo-de-historia).
+> A aprovação da história para o início do desenvolvimento será feita mediante a checagem dos pontos decritos neste [modelo](#-modelo-de-história-para-o-jira).
+
 
 ### Pontuação
 
 A pontuação de uma história é feita levando em consideração a complexidade da mesma.
 
-Para chegar a pontuação ideal da história, o desenvolvedor fará uma comparação com outra similar já desenvolvida ou compará-la a [históra base](#historia-base).
+Para chegar a pontuação ideal da história, o desenvolvedor fará uma comparação com outra similar já desenvolvida ou compará-la a [históra base](#-história-base).
+
 
 #### Range de pontos
 
@@ -93,3 +96,14 @@ Desenvolvimento de uma página com 3 campos, com as seguintes tasks:
 1. Enviar JSON para o back
 1. Criar testes unitários
 1. Criar testes funcionais
+
+**Back**
+
+1. Criar controller
+1. Desenvolver o serviço
+1. Criar o modelo
+1. Criar DTO
+1. Programar o parser do DTO
+1. Preparar testes unitários
+1. Crair testes de integração
+1. Script de criação de tabela
