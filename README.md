@@ -32,6 +32,10 @@
 - [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 - [Vue2](https://vuejs.org/) + [Vuex](https://vuex.vuejs.org/en/)
 - [Bootstrap 4](https://v4-alpha.getbootstrap.com/)
+- #### Database
+  - [NeDB](https://www.mongodb.com/blog/post/nedb-a-lightweight-javascript-database-using)
+- #### Server
+  - [Express](http://expressjs.com/pt-br/)
 - #### IDE
   - [VSCode](https://code.visualstudio.com/)
     - #### Plugins
@@ -81,7 +85,7 @@ Para chegar a pontuação ideal da história, o desenvolvedor fará uma compara�
 
 > Fibonacci ( 1 - 2 - 3 - 5 - 8 - 13 - 21 )
 
-#### <a name="historia-base"></a> História base
+#### História base
 
 Para servir de base foi criada uma história fictícia de ponto **5** com a descrição abaixo.
 
